@@ -5,7 +5,6 @@ import org.dre.habittracker.domain.port.in.CreateHabitUseCase;
 import org.dre.habittracker.domain.port.out.HabitRepository;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class CreateHabitService implements CreateHabitUseCase {
     private final HabitRepository habitRepository;
@@ -17,7 +16,6 @@ public class CreateHabitService implements CreateHabitUseCase {
     @Override
     public void execute(String description, LocalDate startDate, LocalDate endDate) {
         Habit habit = new Habit(
-                UUID.randomUUID().toString(),
                 description,
                 startDate,
                 endDate

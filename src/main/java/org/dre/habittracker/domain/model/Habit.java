@@ -20,6 +20,12 @@ public class Habit {
         this.startDate = startDate;
         this.endDate = endDate;
     }
+    public Habit(String description,
+                 LocalDate startDate, LocalDate endDate) {
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     // Getters / Setters
     public String getId() { return id; }

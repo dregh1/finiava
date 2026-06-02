@@ -5,18 +5,16 @@ FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 WORKDIR /code
 
-# Copier le pom.xml et télécharger les dépendances pour la mise en cache
-COPY pom.xml /code/
+# On remonte de deux niveaux pour atteindre la racine du projet
+COPY ../../pom.xml /code/
 RUN mvn dependency:go-offline -B
 
-# Copier le code source et compiler
-COPY src /code/src
+COPY ../../src /code/src
 RUN mvn package -DskipTests
 
 # -------------------------------------------------------------
 # Étape 2 : L'image finale de production (Run stage)
 # -------------------------------------------------------------
-# Utilisation d'une image JRE Temurin officielle, stable et publique
 FROM eclipse-temurin:21-jre
 
 WORKDIR /deployments
@@ -27,11 +25,9 @@ COPY --from=build /code/target/quarkus-app/*.jar /deployments/
 COPY --from=build /code/target/quarkus-app/app/ /deployments/app/
 COPY --from=build /code/target/quarkus-app/quarkus/ /deployments/quarkus/
 
-# Configurer les variables d'environnement de Quarkus pour écouter sur le bon port et hôte
 ENV QUARKUS_HTTP_HOST=0.0.0.0
 ENV QUARKUS_HTTP_PORT=8080
 
 EXPOSE 8080
 
-# Lancer l'application avec la commande Java standard attendue par Quarkus
 CMD ["java", "-jar", "/deployments/quarkus-run.jar"]

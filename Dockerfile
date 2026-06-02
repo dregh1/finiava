@@ -25,8 +25,8 @@ COPY --from=build /code/target/quarkus-app/app/ ./app/
 COPY --from=build /code/target/quarkus-app/quarkus/ ./quarkus/
 
 ENV QUARKUS_HTTP_HOST=0.0.0.0
-ENV QUARKUS_HTTP_PORT=8080
+ENV QUARKUS_HTTP_PORT=10000
 
-EXPOSE 8080
+EXPOSE 10000
 
 CMD ["java", "-jar", "/deployments/quarkus-run.jar"]

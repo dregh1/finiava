@@ -44,4 +44,15 @@ public class Habit {
     public void setCompletions(List<HabitCompletion> completions) {
         this.completions = completions;
     }
+
+    @Override
+    public String toString() {
+        return "Habit{" +
+                "id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", completions=" + completions +
+                '}';
+    }
 }

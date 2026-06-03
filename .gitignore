@@ -50,8 +50,8 @@ hs_err_pid*
 replay_pid*
 
 # Package Files #
-#*.jar
-#*.war
+*.jar
+*.war
 *.nar
 *.ear
 *.zip

@@ -9,6 +9,8 @@ WORKDIR /code
 COPY pom.xml /code/
 RUN mvn dependency:go-offline -B
 
+RUN echo "=== APRES COPIE DU POM ===" && ls -la
+
 # On copie le dossier src depuis la racine du contexte
 COPY src /code/src
 RUN mvn package -DskipTests

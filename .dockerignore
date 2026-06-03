@@ -1,6 +1,9 @@
-*
-!target/*-runner
-!target/*-runner.jar
-!target/lib/*
-!target/quarkus-app/*
-.env
+# Ne pas bloquer le code source
+!src/
+!pom.xml
+
+# Ignorer les dossiers locaux inutiles pour le build en ligne
+.git
+.idea
+.vscode
+target/

@@ -1,4 +1,4 @@
-package org.dre.habittracker.infrastructure.adapter.in.web;
+package org.dre.habittracker.infrastructure.adapter.in.rest;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -10,10 +10,10 @@ import org.dre.habittracker.domain.port.in.CreateHabitUseCase;
 import org.dre.habittracker.domain.port.in.GetHabitStatsByDateRangeUseCase;
 import org.dre.habittracker.domain.port.in.GetHabitStatsUseCase;
 import org.dre.habittracker.domain.port.out.HabitRepository;
-import org.dre.habittracker.infrastructure.adapter.in.web.dto.CompleteHabitRequest;
-import org.dre.habittracker.infrastructure.adapter.in.web.dto.CreateHabitRequest;
-import org.dre.habittracker.infrastructure.adapter.in.web.dto.HabitResponse;
-import org.dre.habittracker.infrastructure.adapter.in.web.mapper.HabitWebMapper;
+import org.dre.habittracker.infrastructure.adapter.in.rest.dto.CompleteHabitRequest;
+import org.dre.habittracker.infrastructure.adapter.in.rest.dto.CreateHabitRequest;
+import org.dre.habittracker.infrastructure.adapter.in.rest.dto.HabitResponse;
+import org.dre.habittracker.infrastructure.adapter.in.rest.mapper.HabitWebMapper;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;

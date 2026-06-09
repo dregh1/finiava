@@ -1,9 +1,9 @@
-package org.dre.habittracker.infrastructure.adapter.in.web.mapper;
+package org.dre.habittracker.infrastructure.adapter.in.rest.mapper;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.dre.habittracker.domain.model.Habit;
 import org.dre.habittracker.domain.model.HabitCompletion;
-import org.dre.habittracker.infrastructure.adapter.in.web.dto.HabitResponse;
+import org.dre.habittracker.infrastructure.adapter.in.rest.dto.HabitResponse;
 
 import java.util.stream.Collectors;
 

@@ -1,4 +1,4 @@
-package org.dre.habittracker.infrastructure.adapter.in.web.dto;
+package org.dre.habittracker.infrastructure.adapter.in.rest.dto;
 
 
 import java.time.LocalDate;

@@ -14,8 +14,9 @@ public class CreateHabitService implements CreateHabitUseCase {
     }
 
     @Override
-    public void execute(String description, LocalDate startDate, LocalDate endDate) {
+    public void execute(String userId, String description, LocalDate startDate, LocalDate endDate) {
         Habit habit = new Habit(
+                userId,
                 description,
                 startDate,
                 endDate

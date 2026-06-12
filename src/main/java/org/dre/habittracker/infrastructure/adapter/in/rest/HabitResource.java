@@ -2,8 +2,10 @@ package org.dre.habittracker.infrastructure.adapter.in.rest;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
 import org.dre.habittracker.domain.model.Habit;
 import org.dre.habittracker.domain.port.in.CompleteHabitUseCase;
 import org.dre.habittracker.domain.port.in.CreateHabitUseCase;
@@ -44,8 +46,11 @@ public class HabitResource {
 
     // Créer une habitude
     @POST
-    public Response create(CreateHabitRequest request) {
+    public Response create(CreateHabitRequest request,
+                           @Context SecurityContext securityContext) {
+        String userId = securityContext.getUserPrincipal().getName();
         createHabitUseCase.execute(
+                userId,
                 request.description,
                 request.startDate,
                 request.endDate

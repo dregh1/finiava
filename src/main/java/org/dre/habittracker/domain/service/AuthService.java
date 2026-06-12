@@ -1,5 +1,6 @@
 package org.dre.habittracker.domain.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.dre.habittracker.domain.model.AuthResult;
 import org.dre.habittracker.domain.model.Token;
@@ -9,6 +10,7 @@ import org.dre.habittracker.domain.port.in.RegisterUseCase;
 import org.dre.habittracker.domain.port.out.TokenGenerator;
 import org.dre.habittracker.domain.port.out.UserRepository;
 
+@ApplicationScoped
 public class AuthService implements RegisterUseCase, LoginUseCase {
     private final UserRepository userRepository;
     private final TokenGenerator tokenGenerator;
